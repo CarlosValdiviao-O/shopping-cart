@@ -7,9 +7,11 @@ const Info = (props) => {
     const { id } = useParams();
 
     const [ card, setCard ] = useState({});
+    const [ quantity, setQuantity ] = useState(1)
 
     useEffect(() => {
         fetchCard();
+        setQuantity(1);
     }, [id]);
     
     const fetchCard = async () => {
@@ -29,7 +31,10 @@ const Info = (props) => {
                 <p>{card.type}</p>
                 <p>{card.desc}</p>
                 <p>{card.card_prices[0].ebay_price + '$'}</p>
-                <button onClick={() => addItem(card, 1)}>click</button>
+                <button onClick={() => setQuantity((quantity) => quantity - 1)} disabled={(quantity > 1) ? false : true}>-</button>
+                <p>{quantity}</p>
+                <button onClick={() => setQuantity((quantity) => quantity + 1)}>+</button>
+                <button onClick={() => {addItem(card, quantity); setQuantity(1)}}>click</button>
             </div>
         </div>
     );

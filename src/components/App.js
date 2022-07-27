@@ -4,12 +4,14 @@ import Home from "./Home";
 import Nav from "./Nav";
 import Shop from "./Shop";
 import Info from "./Info";
+import Cart from "./Cart";
 
 const App = () => {
   const [ index, setIndex ] = useState(0);
   const [ cards, setCards ] = useState([]);
   const [ limit, setLimit ] = useState(0);
   const [ cart, setCart ] = useState([]);
+  const [ hideCart, setHideCart ] = useState(true);
 
   useEffect(() => {
     fetchCards();
@@ -43,18 +45,45 @@ const App = () => {
       arr.push(item);
     }
     setCart(arr);
-    console.log(arr);
+  }
+
+  const changeQuantity = (item, q) => {
+    let arr ;
+    let remove = false;
+    let index;
+    arr = cart.map((card) => {
+      if (card.id === item.id) {
+        if (card.quantity + q <= 0){
+          remove = true;
+          index = cart.indexOf(card);
+        }  
+        return { ...card, quantity: card.quantity + q}
+      }
+      else return card;   
+    })
+    if(remove === true) arr.splice(index, 1);
+    setCart(arr);
+  }
+
+  const toggleCart = () => {
+    if (hideCart === true) setHideCart(false);
+    else setHideCart(true);
+  }
+
+  const emptyCart = () => {
+    setCart([]);
   }
   
   return (
     <BrowserRouter>
-      <Nav />
+      <Nav onClick={toggleCart}/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/shop" element={<Shop index={index} moveIndex={moveIndex} limit={limit} cards={cards}/>}>
           <Route path="/shop/:id" element={<Info addItem={addItem} />} />
         </Route>
       </Routes>
+      <Cart hide = {hideCart} cart={cart} changeQuantity={changeQuantity} emptyCart={emptyCart} />
     </BrowserRouter>
   );
 };
