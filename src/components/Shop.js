@@ -1,30 +1,16 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import MoveBar from "./MoveBar"
+import { Outlet } from "react-router-dom";
 
-const Shop = () => {
+const Shop = (props) => {
   
-  const [ index, setIndex ] = useState(0);
+  const { cards, moveIndex, index, limit, fetchCards} = props;
   const [ current, setCurrent ] = useState([]);
-  const [ cards, setCards ] = useState([]);
-  const [ limit, setLimit ] = useState(0);
-
-  useEffect(() => {
-    fetchCards();
-  }, []);
   
   useEffect(() => {
     fillCurrent();
-  }, [cards, index] );
-
-  const fetchCards = async () => {
-    const data = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php');
-    const items = await data.json();
-    setCards(items.data);
-    let aux = Math.floor(items.data.length / 12)
-    if (items.data.length % 12 === 0) aux--;
-    setLimit(aux);
-  }
+  }, [index, limit]);
 
   const fillCurrent = () => {
     let aux = [];
@@ -37,10 +23,6 @@ const Shop = () => {
     setCurrent(aux);
     }
   }
-
-  const moveIndex = (num) => {
-      setIndex(num);   
-  }
   
   if (current.length !== 0) {
     return (
@@ -49,16 +31,21 @@ const Shop = () => {
           return<Card key={item.id} item={item}/>
         })}
         <MoveBar index={index} moveIndex={moveIndex} limit={limit}/>
+        <Outlet />
       </div>
+      
     );
   }
 
   else {
     return(
-      <p>Wait</p>
+      <div>
+        <p>Wait</p>
+        <Outlet />
+      </div>
+      
     )
-  }
-  
+  } 
 };
 
 export default Shop;
