@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Shop from "./Shop";
 import Info from "./Info";
 import Cart from "./Cart";
+import "./style.css";
 
 const App = () => {
   const [ index, setIndex ] = useState(0);
@@ -36,7 +37,13 @@ const App = () => {
     arr = cart.map((card) => {
       if (card.id === item.id) {
         itemIsAdded = true;
-        return { ...card, quantity: card.quantity + q}
+        if (+q + card.quantity >= 50){
+          q = 50;
+          return { ...card, quantity: 50}
+        }
+        else {
+          return { ...card, quantity: card.quantity + q};
+        }
       }
       else return card;   
     })
@@ -53,11 +60,37 @@ const App = () => {
     let index;
     arr = cart.map((card) => {
       if (card.id === item.id) {
+        if (+q + card.quantity >= 50){
+          q = 50;
+          return { ...card, quantity: 50}
+        } 
         if (card.quantity + q <= 0){
           remove = true;
           index = cart.indexOf(card);
         }  
         return { ...card, quantity: card.quantity + q}
+      }
+      else return card;   
+    })
+    if(remove === true) arr.splice(index, 1);
+    setCart(arr);
+  }
+
+  const handleChange = (item, q) => {
+    let arr ;
+    let remove = false;
+    let index;
+    arr = cart.map((card) => {
+      if (card.id === item.id) {
+        if (+q >= 50){
+          q = 50;
+          return { ...card, quantity: 50}
+        }  
+        if (+q <= 0){
+          remove = true;
+          index = cart.indexOf(card);
+        }  
+        return { ...card, quantity: +q}
       }
       else return card;   
     })
@@ -80,10 +113,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/shop" element={<Shop index={index} moveIndex={moveIndex} limit={limit} cards={cards}/>}>
-          <Route path="/shop/:id" element={<Info addItem={addItem} />} />
+          <Route path="/shop/:id" element={<Info addItem={addItem} toggleCart={toggleCart} />} />
         </Route>
       </Routes>
-      <Cart hide = {hideCart} cart={cart} changeQuantity={changeQuantity} emptyCart={emptyCart} />
+      <Cart hide = {hideCart} cart={cart} changeQuantity={changeQuantity} emptyCart={emptyCart}
+          toggleCart={toggleCart} handleChange={handleChange}/>
     </BrowserRouter>
   );
 };

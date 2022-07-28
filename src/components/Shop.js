@@ -26,7 +26,7 @@ const Shop = (props) => {
   
   if (current.length !== 0) {
     return (
-      <div>
+      <div id="shop">
         {current.map((item) => {
           return<Card key={item.id} item={item}/>
         })}
