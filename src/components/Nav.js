@@ -11,7 +11,7 @@ const Nav = (props) => {
         <h1>Shopping Card</h1>
       </Link>
       <ul>
-          <Link to={'/shop'}>
+          <Link to={'/shopping-cart/shop'}>
             <li>Shop</li>
           </Link>
           <li>
