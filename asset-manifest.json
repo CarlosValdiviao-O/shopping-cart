@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/shopping-card/static/css/main.4dca9cab.css",
-    "main.js": "/shopping-card/static/js/main.9e8d0521.js",
-    "static/media/background.jpg": "/shopping-card/static/media/background.33a097ab92a412562dfe.jpg",
-    "static/media/solomon.png": "/shopping-card/static/media/solomon.cbed63aa87202548d561.png",
-    "index.html": "/shopping-card/index.html",
-    "static/media/cart.svg": "/shopping-card/static/media/cart.4e6817eb8a688f2f4200f17d855dcaac.svg",
-    "static/media/chevron-triple-right.svg": "/shopping-card/static/media/chevron-triple-right.95111bc9bf802a5d79f3d545b2aa6ee6.svg",
-    "static/media/chevron-triple-left.svg": "/shopping-card/static/media/chevron-triple-left.6c1846a65250377374489bf4e21658c2.svg",
-    "static/media/chevron-double-left.svg": "/shopping-card/static/media/chevron-double-left.96a07914365c24c1735ecea2c6ea41db.svg",
-    "static/media/chevron-double-right.svg": "/shopping-card/static/media/chevron-double-right.8dbb6bfe9616a82aef8810aa87cb9d35.svg",
-    "static/media/chevron-left.svg": "/shopping-card/static/media/chevron-left.16983b8ba3a17b085e709bf6a873d673.svg",
-    "static/media/chevron-right.svg": "/shopping-card/static/media/chevron-right.1d04cee816d78b6a55b0d5789cfa0d7d.svg",
-    "main.4dca9cab.css.map": "/shopping-card/static/css/main.4dca9cab.css.map",
-    "main.9e8d0521.js.map": "/shopping-card/static/js/main.9e8d0521.js.map"
+    "main.css": "/shopping-cart/static/css/main.6eba12f9.css",
+    "main.js": "/shopping-cart/static/js/main.243963e3.js",
+    "static/media/background.jpg": "/shopping-cart/static/media/background.33a097ab92a412562dfe.jpg",
+    "static/media/solomon.png": "/shopping-cart/static/media/solomon.cbed63aa87202548d561.png",
+    "index.html": "/shopping-cart/index.html",
+    "static/media/cart.svg": "/shopping-cart/static/media/cart.4e6817eb8a688f2f4200f17d855dcaac.svg",
+    "static/media/chevron-triple-right.svg": "/shopping-cart/static/media/chevron-triple-right.95111bc9bf802a5d79f3d545b2aa6ee6.svg",
+    "static/media/chevron-triple-left.svg": "/shopping-cart/static/media/chevron-triple-left.6c1846a65250377374489bf4e21658c2.svg",
+    "static/media/chevron-double-left.svg": "/shopping-cart/static/media/chevron-double-left.96a07914365c24c1735ecea2c6ea41db.svg",
+    "static/media/chevron-double-right.svg": "/shopping-cart/static/media/chevron-double-right.8dbb6bfe9616a82aef8810aa87cb9d35.svg",
+    "static/media/chevron-left.svg": "/shopping-cart/static/media/chevron-left.16983b8ba3a17b085e709bf6a873d673.svg",
+    "static/media/chevron-right.svg": "/shopping-cart/static/media/chevron-right.1d04cee816d78b6a55b0d5789cfa0d7d.svg",
+    "main.6eba12f9.css.map": "/shopping-cart/static/css/main.6eba12f9.css.map",
+    "main.243963e3.js.map": "/shopping-cart/static/js/main.243963e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.4dca9cab.css",
-    "static/js/main.9e8d0521.js"
+    "static/css/main.6eba12f9.css",
+    "static/js/main.243963e3.js"
   ]
 }
