@@ -3,7 +3,7 @@ import Icon from './cart.svg';
 
 const Nav = (props) => {
 
-  const { onClick } = props;
+  const { onClick, cart } = props;
 
   return (
     <nav>
@@ -17,6 +17,7 @@ const Nav = (props) => {
           <li>
             <button onClick={onClick}>
               <img src={Icon} alt='cart-icon'></img>
+              {(cart.length > 0) ? <p id='cart-quantity'>{cart.length}</p> : '' }
             </button>
           </li>
       </ul>

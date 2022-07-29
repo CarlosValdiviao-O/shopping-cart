@@ -1,3 +1,8 @@
+:root {
+    --brown: rgb(88, 33, 4);
+    --white: #f5f5f5;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +16,7 @@ body {
     background: url('./background.jpg');
     position: relative;
     overflow-x: hidden;
+    background-size: cover;
 }
 
 #root {
@@ -20,7 +26,7 @@ body {
     gap: 15px;
 }
 
-a {
+a, a:visited  {
     text-decoration: none;
 }
 
@@ -37,7 +43,7 @@ nav {
     padding: 15px;
     width: 100%;
     justify-content: space-around;
-    background-color: rgb(0 0 0 / 70%);
+    background-color: rgb(88 33 4 / 90%);
     align-items: center;
     position: sticky;
     top: 0;
@@ -45,6 +51,7 @@ nav {
 
 nav h1{
     font-size: 3rem;
+    color: var(--white);
 }
 
 ul {
@@ -53,15 +60,32 @@ ul {
     justify-content: space-around;
     width: 50%;
     font-size: 2rem;
+    color: var(--white);
+}
+
+li {
+    color: var(--white);
 }
 
 nav button {
     border-radius: 50%;
     background-color: transparent;
+    position: relative;
+}
+
+#cart-quantity {
+    position: absolute;
+    left: -10%;
+    bottom: -10%;
+    border-radius: 50%;
+    background-color: #8F4F32;
+    width: 16px;
+    color: var(--white);
+    font-weight: bold;
 }
 
 nav button:hover img {
-    filter: drop-shadow(0 0 0.1rem currentColor)
+    filter: drop-shadow(0 0 0.1rem var(--white))
 }
 
 nav img {
@@ -75,6 +99,7 @@ nav img {
     border-radius: 15px;
     background-color: rgba(34, 34, 34, 0.7);
     display: flex;
+    color: white;
 }
 
 #home .left {
@@ -115,6 +140,16 @@ nav img {
 #home button {
     padding: 10px;
     justify-self: center;
+    font-size: 1rem;
+    background-color: var(--brown);
+    color: var(--white);
+    border: 1px solid gray;
+    font-weight: bold;
+}
+
+#home button:hover {
+    color: var(--brown);
+    background-color: var(--white);
 }
 
 #back {
@@ -135,7 +170,7 @@ nav img {
 
 #cart {
     width: min(30rem, 40%);
-    background-color: aqua;
+    background-color: var(--white);
     height: max-content;
     min-height: 100vh;
     margin-left: auto;
@@ -154,6 +189,10 @@ nav img {
     width: 90%;
     padding: 1rem;
     display: flex;
+}
+
+.cart-item p:first-of-type {
+    font-weight: bold;
 }
 
 .cart-item .left {
@@ -180,12 +219,13 @@ nav img {
     gap: 5px;
 } 
 
-#close-cart {
+#cart #close-cart {
     position: absolute;
     top: 0;
     right: 5%;
+    color: black;
     background-color: transparent;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 #cart .cart-items {
@@ -199,11 +239,14 @@ nav img {
 .cart-item input {
     max-width: 3rem;
     max-height: 2rem;
+    font-size: 0.9rem;
 }
 
 .cart-item button {
     width: 2rem;
     max-height: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #cart>p {
@@ -215,6 +258,10 @@ nav img {
 #cart>button {
     padding: 8px;
     margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: var(--brown);
+    color: var(--white);
 }
 
 #cart>div {
@@ -224,12 +271,13 @@ nav img {
     gap: 10px;
     justify-content: center;
     flex: 1;
+    font-size: 1.2rem;
 }
 
 #shop {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(30%, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 22%));
     padding: 10px;
     gap: 10px;
     justify-content: center;
@@ -238,8 +286,12 @@ nav img {
 #shop .card {
     display: flex;
     flex-direction: column;
-    border: 3px solid brown;
+    border: 3px solid rgb(41 48 65);
+    background-color: rgb(41 48 65);
     cursor: pointer;
+    height: 100%;
+    justify-content: space-between;
+    border-radius: 0 0 8px 8px;
 }
 
 .card img {
@@ -249,6 +301,8 @@ nav img {
 
 .card p {
     padding:0px 8px 8px;
+    text-align: left;
+    color: var(--white);
 }
 
 .card p:first-of-type {
@@ -261,13 +315,20 @@ nav img {
     align-items: center;
     justify-content: center;
     gap: 5px;
+    background-color: rgb(88 33 4 / 90%);
+    width: max-content;
+    justify-self: center;
+    border-radius: 5px;
+    padding: 0 16px;
 }
 
 .move-bar button {
-    width: 1.5rem;
+    min-width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
     background-color: transparent;
+    color: var(--white);
+    font-size: 1rem;
 }
 
 .move-bar button:not(:disabled):hover {
@@ -276,8 +337,12 @@ nav img {
 }
 
 .move-bar button:disabled {
-    color: initial;
+    color: var(--white);
     cursor: default;
+}
+
+.move-bar .current {
+    text-decoration: underline;
 }
 
 #info {
@@ -302,7 +367,7 @@ nav img {
     height: 90%;
     display: flex;
     padding: 10px;
-    background-color: gray;
+    background-color: #dfdfdf;
     border-radius: 8px;
 }
 
@@ -326,6 +391,21 @@ nav img {
     gap: 10px;
 }
 
+.content .right h1 {
+    font-size: 3rem;
+}
+
+.content .right p:first-of-type {
+    font-style: italic;
+    color: #353535;
+    font-size: 1.6rem;
+}
+
+.content .right p:last-of-type {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .content .buttons {
     display: flex;
     margin-top: auto;
@@ -336,11 +416,17 @@ nav img {
 .buttons button {
     background: transparent;
     border: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .right>button {
     align-self: center;
     width: max-content;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    color: var(--white);
+    background-color: var(--brown);
 }
 
 .content input {
@@ -348,14 +434,13 @@ nav img {
     max-height: 2rem;
 }
 
-.content button {
-    width: 6rem;
-    max-height: 3rem;
-}
-
 .content .buttons button {
     width: 3rem;
     max-height: 2rem;
+}
+
+.buttons button:hover {
+    filter: drop-shadow(0 0 0.1rem currentColor)
 }
 
 #close-info {
@@ -363,7 +448,6 @@ nav img {
     width: fit-content;
     height: auto;
     background-color: transparent;
-    color: wheat;
     font-weight: bold;
     font-size: 2rem;
 }

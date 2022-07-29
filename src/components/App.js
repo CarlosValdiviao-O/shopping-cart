@@ -32,6 +32,7 @@ const App = () => {
   }
 
   const addItem = (item, q) => {
+    if (+q <= 0) return;
     let itemIsAdded = false;
     let arr = [];
     arr = cart.map((card) => {
@@ -109,7 +110,7 @@ const App = () => {
   
   return (
     <BrowserRouter>
-      <Nav onClick={toggleCart}/>
+      <Nav onClick={toggleCart} cart={cart}/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/shop" element={<Shop index={index} moveIndex={moveIndex} limit={limit} cards={cards}/>}>

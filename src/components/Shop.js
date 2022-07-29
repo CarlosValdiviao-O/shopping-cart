@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const Shop = (props) => {
   
-  const { cards, moveIndex, index, limit, fetchCards} = props;
+  const { cards, moveIndex, index, limit } = props;
   const [ current, setCurrent ] = useState([]);
   
   useEffect(() => {

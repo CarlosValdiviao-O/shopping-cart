@@ -39,7 +39,8 @@ const MoveBar = (props) => {
             {pages.map((link) => {
                 keyAux++;
                 return (
-                    <button key={keyAux} onClick={() => {moveIndex((link - 1) * 12)}} disabled={(link === '' || link === index / 12 + 1) ? true : false}>{link}</button>
+                    <button key={keyAux} onClick={() => {moveIndex((link - 1) * 12)}} className={(link === index / 12 + 1) ? 'current' : ''}
+                        disabled={(link === '' || link === index / 12 + 1) ? true : false}>{link}</button>
                 )
             })}
             <button onClick={() => {moveIndex(index + 12)}} className="right" disabled={right}>
