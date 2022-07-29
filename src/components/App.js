@@ -112,9 +112,9 @@ const App = () => {
     <BrowserRouter basename="/shopping-cart">
       <Nav onClick={toggleCart} cart={cart}/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/shop" element={<Shop index={index} moveIndex={moveIndex} limit={limit} cards={cards}/>}>
-          <Route path="/shop/:id" element={<Info addItem={addItem} toggleCart={toggleCart} />} />
+        <Route path="/shopping-cart" element={<Home/>} />
+        <Route path="/shopping-cart/shop" element={<Shop index={index} moveIndex={moveIndex} limit={limit} cards={cards}/>}>
+          <Route path="/shopping-cart/shop/:id" element={<Info addItem={addItem} toggleCart={toggleCart} />} />
         </Route>
       </Routes>
       <Cart hide = {hideCart} cart={cart} changeQuantity={changeQuantity} emptyCart={emptyCart}

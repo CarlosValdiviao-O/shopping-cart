@@ -6,7 +6,7 @@ const Card = (props) => {
     const bigImg = item.card_images[0].image_url;
     const price = item.card_prices[0].ebay_price;
     return (
-        <Link to={`/shop/${item.id}`}>
+        <Link to={`/shopping-cart/shop/${item.id}`}>
             <button className="card">
                 <img src={bigImg} alt={item.name}></img>
                 <p>{item.name}</p>
