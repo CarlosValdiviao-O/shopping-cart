@@ -7,7 +7,7 @@ const Nav = (props) => {
 
   return (
     <nav>
-      <Link to={'/shopping-cart/'}>
+      <Link to={'/shopping-cart'}>
         <h1>Shopping Card</h1>
       </Link>
       <ul>
