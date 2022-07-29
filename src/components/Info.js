@@ -35,7 +35,7 @@ const Info = (props) => {
     if (card.name)
     return (
         <div id="info">
-            <Link to={'/shopping-cart/shop'}>
+            <Link to={'/shop'}>
                 <div onClick={(() => setCard({}))} className="outside"></div>
             </Link>
             <div className="content">
@@ -55,7 +55,7 @@ const Info = (props) => {
                     </div>
                     <button onClick={() => {addItem(card, quantity); setQuantity(1); toggleCart()}}>Add to Cart</button>
                 </div>
-                <Link to={'/shopping-cart/shop'} style={{height: 'max-content'}}>
+                <Link to={'/shop'} style={{height: 'max-content'}}>
                     <button onClick={(() => setCard({}))} id='close-info'>X</button>
                 </Link>
             </div>

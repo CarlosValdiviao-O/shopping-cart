@@ -7,11 +7,11 @@ const Nav = (props) => {
 
   return (
     <nav>
-      <Link to={'/shopping-cart/'}>
+      <Link to={'/'}>
         <h1>Shopping Card</h1>
       </Link>
       <ul>
-          <Link to={'/shopping-cart/shop'}>
+          <Link to={'/shop'}>
             <li>Shop</li>
           </Link>
           <li>
