@@ -109,7 +109,7 @@ const App = () => {
   }
   
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shopping-cart">
       <Nav onClick={toggleCart} cart={cart}/>
       <Routes>
         <Route path="/" element={<Home/>} />
